@@ -1288,6 +1288,7 @@ int16_t Temperature::getHeaterPower(const heater_id_t heater_id) {
 inline void loud_kill(FSTR_P const lcd_msg, const heater_id_t heater_id) {
   marlin_state = MF_KILLED;
   thermalManager.disable_all_heaters();
+  /*
   #if HAS_BEEPER
     for (uint8_t i = 20; i--;) {
       hal.watchdog_refresh();
@@ -1297,6 +1298,7 @@ inline void loud_kill(FSTR_P const lcd_msg, const heater_id_t heater_id) {
     }
     buzzer.on();
   #endif
+  */
   #if ENABLED(NOZZLE_PARK_FEATURE)
     if (!homing_needed_error()) {
       nozzle.park(0);
